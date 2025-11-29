@@ -9,3 +9,4 @@ class Snapshot(Base):
     label = Column(String, nullable=False)
     data = Column(JSON, default={})  # {"graph":..., "log":..., "params":...}
     created_at = Column(DateTime(timezone=True), server_default=func.now())
+

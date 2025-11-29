@@ -7,3 +7,4 @@ class RuleSet(Base):
     session_id = Column(Integer, ForeignKey("think_sessions.id"), index=True)
     name = Column(String, nullable=False)
     rules = Column(JSON, default={})  # {"forbidden":["X"],"priorities":{"realism":0.8},...}
+

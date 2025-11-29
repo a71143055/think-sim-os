@@ -24,3 +24,4 @@ def list_workspace():
 async def os_view(request: Request, db: Session = Depends(get_db)):
     items = list_workspace()
     return templates.TemplateResponse("os.html", {"request": request, "items": items})
+

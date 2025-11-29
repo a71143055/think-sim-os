@@ -45,3 +45,4 @@ def create_windows_artifact(session_id: int, workspace_paths: Dict) -> str:
             z.write(os.path.join(base, fname), arcname=fname)
 
     return zip_path
+

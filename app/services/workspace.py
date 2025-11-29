@@ -37,3 +37,4 @@ def write_workspace_files(session_id: int, snapshot: Dict, config: Dict) -> Dict
     paths["brief"] = brief_path
 
     return {"base": base, **paths}
+

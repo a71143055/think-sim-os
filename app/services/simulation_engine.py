@@ -50,3 +50,4 @@ class SimulationState:
             }
         }
         return events, snapshot
+

@@ -10,3 +10,4 @@ class ThinkSession(Base):
     value_vector = Column(JSON, default={})     # {"realism":0.7,"simplicity":0.5,...}
     constraints = Column(JSON, default={})
     created_at = Column(DateTime(timezone=True), server_default=func.now())
+

@@ -6,3 +6,4 @@ class ThoughtGraph(Base):
     id = Column(Integer, primary_key=True)
     session_id = Column(Integer, ForeignKey("think_sessions.id"), index=True)
     graph_json = Column(JSON, default={})  # nodes/edges serialized
+

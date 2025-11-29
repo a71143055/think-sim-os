@@ -9,3 +9,4 @@ class Settings(BaseModel):
     WORKSPACE_DIR: str = os.getenv("WORKSPACE_DIR", "./workspace")
 
 settings = Settings()
+

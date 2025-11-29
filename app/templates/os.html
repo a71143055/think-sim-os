@@ -6,11 +6,11 @@
 <div class="card">
     <h3>{{ item.dir }}</h3>
     <ul>
-        {% for f in item.files %}
+        {% for f in item. Files %}
         <li>
             {{ f.name }}
             {% if f.name.endswith(".zip") %}
-            <a href="/exports/download?path={{ f.path }}">다운로드</a>
+            <a href="/data/exports/download?path={{ f.path }}">다운로드</a>
             {% endif %}
         </li>
         {% endfor %}

@@ -36,3 +36,4 @@ async def ingest(text: str = Form(...), session_name: str = Form(...), db: Sessi
     db.add(tg); db.commit()
 
     return HTMLResponse(f"<p>Session created: {session.id}</p><a href='/sessions/{session.id}'>Open</a>")
+

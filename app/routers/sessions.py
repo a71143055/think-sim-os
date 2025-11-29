@@ -17,3 +17,4 @@ async def session_view(session_id: int, request: Request, db: Session = Depends(
     rules = db.query(RuleSet).filter(RuleSet.session_id == session_id).all()
     snaps = db.query(Snapshot).filter(Snapshot.session_id == session_id).order_by(Snapshot.id.desc()).all()
     return templates.TemplateResponse("session.html", {"request": request, "session": s, "graph": g.graph_json, "rules": [r.rules for r in rules], "snaps": snaps})
+

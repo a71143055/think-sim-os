@@ -30,3 +30,4 @@ def serialize_graph(G: nx.DiGraph) -> dict:
         "nodes": [{"id": n, **d} for n, d in G.nodes(data=True)],
         "edges": [{"src": u, "dst": v, **d} for u, v, d in G.edges(data=True)]
     }
+

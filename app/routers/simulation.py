@@ -29,3 +29,4 @@ async def run_simulation(session_id: int = Form(...), steps: int = Form(6), db: 
     workspace_paths = write_workspace_files(session_id, snapshot, {"value_vector": s.value_vector, "rules": rules})
 
     return {"ok": True, "events": events, "snapshot_id": snap.id, "file": path, "workspace": workspace_paths}
+

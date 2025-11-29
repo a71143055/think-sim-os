@@ -12,3 +12,4 @@ async def apply_rules(session_id: int = Form(...), name: str = Form(...), rules_
     rs = RuleSet(session_id=session_id, name=name, rules=rules)
     db.add(rs); db.commit()
     return {"ok": True, "rule_set_id": rs.id}
+
