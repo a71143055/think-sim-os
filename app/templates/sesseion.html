@@ -1,0 +1,53 @@
+{% extends "layout.html" %}
+{% block content %}
+<h2>세션 {{ session.id }}: {{ session.name }}</h2>
+
+<section>
+    <h3>가치 벡터</h3>
+    <pre>{{ session.value_vector | tojson(indent=2) }}</pre>
+</section>
+
+<section>
+    <h3>그래프</h3>
+    <pre style="max-height:300px; overflow:auto">{{ graph | tojson(indent=2) }}</pre>
+</section>
+
+<section>
+    <h3>규칙 적용</h3>
+    <form hx-post="/rules/apply" hx-target="#rules-result">
+        <input type="hidden" name="session_id" value="{{ session.id }}"/>
+        <input type="text" name="name" placeholder="Rule name"/>
+        <textarea name="rules_json" rows="6" style="width:100%">{ "forbidden": ["금지어"], "priorities": {"realism": 0.8} }</textarea>
+        <button type="submit">적용</button>
+    </form>
+    <div id="rules-result"></div>
+</section>
+
+<section>
+    <h3>시뮬레이션</h3>
+    <form hx-post="/simulation/run" hx-target="#sim-result">
+        <input type="hidden" name="session_id" value="{{ session.id }}"/>
+        <input type="number" name="steps" value="6" min="1" max="100"/>
+        <button type="submit">Run</button>
+    </form>
+    <div id="sim-result"></div>
+</section>
+
+<section>
+    <h3>스냅샷 목록</h3>
+    <ul>
+        {% for s in snaps %}
+        <li>Snapshot {{ s.id }} ({{ s.label }})</li>
+        {% endfor %}
+    </ul>
+</section>
+
+<section>
+    <h3>Windows 실행 자료</h3>
+    <form hx-post="/exports/windows" hx-target="#export-result">
+        <input type="hidden" name="session_id" value="{{ session.id }}"/>
+        <button type="submit">패키지 생성</button>
+    </form>
+    <div id="export-result"></div>
+</section>
+{% endblock %}

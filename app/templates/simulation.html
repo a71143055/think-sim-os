@@ -1,0 +1,5 @@
+{% extends "layout.html" %}
+{% block content %}
+<h2>시뮬레이션 결과</h2>
+<pre>{{ events | tojson(indent=2) }}</pre>
+{% endblock %}

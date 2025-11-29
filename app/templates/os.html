@@ -1,0 +1,20 @@
+{% extends "layout.html" %}
+{% block content %}
+<h2>Web OS (Workspace)</h2>
+<p>세션별 디렉터리와 생성된 파일을 탐색합니다.</p>
+{% for item in items %}
+<div class="card">
+    <h3>{{ item.dir }}</h3>
+    <ul>
+        {% for f in item.files %}
+        <li>
+            {{ f.name }}
+            {% if f.name.endswith(".zip") %}
+            <a href="/exports/download?path={{ f.path }}">다운로드</a>
+            {% endif %}
+        </li>
+        {% endfor %}
+    </ul>
+</div>
+{% endfor %}
+{% endblock %}
